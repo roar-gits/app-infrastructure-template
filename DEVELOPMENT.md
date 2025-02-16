@@ -1,22 +1,59 @@
-# Development Guide
+# Template Development Guide
 
-## Project Setup
+## Getting Started
 
-1. **Dependencies**
+1. **Create Your Project**
+```bash
+git clone --depth 1 https://github.com/YOUR_USERNAME/react-typescript-template.git your-project-name
+cd your-project-name
+rm -rf .git
+git init
+```
+
+2. **Install Dependencies**
 ```bash
 npm install
 ```
 
-2. **Development Server**
+3. **Start Development**
 ```bash
 npm run dev
 ```
 
-3. **Tests**
-```bash
-npm test        # Run once
-npm test:watch  # Watch mode
+## Template Structure
+
 ```
+src/
+├── app/            # Application root
+├── core/           # Business logic layer
+├── data/          # Data management layer
+├── ui/            # Presentation layer
+├── hooks/         # Custom React hooks
+├── test/          # Testing utilities
+└── utils/         # Shared utilities
+```
+
+## Customizing the Template
+
+### 1. Update Configuration
+
+- Modify package.json
+- Configure environment variables
+- Adjust TypeScript settings
+- Update ESLint rules
+
+### 2. Clean Up Example Code
+
+- Remove example components
+- Update model definitions
+- Modify API configuration
+- Adjust routing setup
+
+### 3. Add Your Features
+
+- Place components in appropriate layers
+- Follow testing patterns
+- Maintain documentation
 
 ## Common Issues & Solutions
 
@@ -57,19 +94,6 @@ If tests fail to resolve imports:
 1. Ensure vitest.config.ts has correct aliases
 2. Check test file imports use correct paths
 3. Verify @testing-library/jest-dom is imported in setup
-
-## Project Structure
-
-```
-src/
-├── app/            # Application root components
-├── core/           # Business logic & models
-├── data/          # API & data management
-├── ui/            # Presentation components
-├── hooks/         # Custom React hooks
-├── test/          # Testing utilities
-└── utils/         # Shared utilities
-```
 
 ## Code Style
 

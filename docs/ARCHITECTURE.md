@@ -1,160 +1,53 @@
-# Architecture Documentation
+# Template Architecture
 
-## Role-Based Architecture
+## Overview
 
-This template implements a role-based architecture that organizes code by responsibility rather than features.
+This template implements a role-based architecture optimized for scalable React applications. Each layer has specific responsibilities and constraints.
 
 ## Directory Structure
 
 ```
 src/
 ├── app/            # Application root
-│   ├── App.tsx     # Main App component
-│   ├── App.css     # App-specific styles
+│   ├── App.tsx     # Main component
 │   └── __tests__/  # App-level tests
-├── pages/          # Route components
-│   ├── home/       # Home page
-│   └── initiatives/# Initiatives page
-├── core/           # Business logic layer
+├── core/           # Business logic
 │   ├── models.ts   # Data structures
-│   ├── services.ts # Business operations
-│   └── constants.ts # Environment & config
-├── data/          # Data management layer
+│   └── services.ts # Business operations
+├── data/          # Data management
 │   ├── api.ts     # API communication
-│   └── transforms.ts # Data transformations
-├── ui/            # Presentation layer
-│   ├── components.tsx
-│   ├── layouts.tsx
-│   └── ErrorBoundary.tsx
-│   └── __tests__/
-├── hooks/         # Custom React hooks
-├── test/          # Testing utilities
-└── utils/         # Shared utilities
-    ├── errors.ts  # Error handling
-    └── index.ts   # Utility exports
+│   └── transforms.ts # Data transforms
+├── ui/            # Presentation
+│   ├── components/ # Reusable components
+│   └── layouts/    # Layout components
+└── [other dirs]   # Additional layers
 ```
 
-## Layer Responsibilities
+## Using the Template
 
-### Core Layer
-- Contains business logic and domain models
-- No dependencies on other layers
-- Pure functions and type definitions
-- Example: `models.ts`, `services.ts`
+### 1. Layer Organization
 
-### Data Layer
-- Handles all external communication
-- Manages application state
-- Transforms data between API and domain models
-- Example: `api.ts`, `store.ts`
+Place your code in the appropriate layer:
+- Business logic → core/
+- Data fetching → data/
+- UI components → ui/
 
-### UI Layer
-- Presents information to users
-- Handles user interactions
-- Manages component state
-- Example: `components.tsx`, `layouts.tsx`
+### 2. Testing Strategy
 
-## Key Design Decisions
-
-1. **Strict Layer Dependencies**
-   - UI can depend on Data and Core
-   - Data can depend on Core
-   - Core has no external dependencies
-
-2. **State Management**
-   - React Query for server state
-   - Zustand for global state
-   - React hooks for local state
-
-3. **Error Handling**
-   - Global error boundary
-   - Typed error responses
-   - Consistent error structure
-
-4. **Testing Strategy**
-   - Unit tests for Core layer
-   - Integration tests for Data layer
-   - Component tests for UI layer
-
-## Development Guidelines
-
-1. **File Organization**
-   ```
-   ✅ DO:
-   - Place files in appropriate layers
-   - Use clear, role-based naming
-   - Keep files focused and small
-
-   ❌ DON'T:
-   - Mix concerns across layers
-   - Create new top-level directories
-   - Duplicate functionality
-   ```
-
-2. **Code Style**
-   - Use TypeScript strictly
-   - Follow ESLint rules
-   - Document public APIs
-
-3. **Testing Requirements**
-   - Write tests for new functionality
-   - Maintain test coverage
-   - Use test utilities
-
-## Common Patterns
-
-### API Communication
+Follow the testing patterns:
 ```typescript
-// Using ApiService
-const data = await ApiService.initiatives.getAll();
+// Component test example
+describe('Component', () => {
+  it('should render', () => {
+    render(<Component />)
+    expect(screen.getByRole('button')).toBeInTheDocument()
+  })
+})
 ```
 
-### Error Handling
-```typescript
-// Using ErrorBoundary
-<ErrorBoundary onError={handleError}>
-  <Component />
-</ErrorBoundary>
-```
+### 3. Adding Features
 
-### State Management
-```typescript
-// Using Zustand store
-const { data, setData } = useStore();
-```
-
-## Performance Considerations
-
-1. **Code Splitting**
-   - Route-based splitting
-   - Lazy loading components
-   - Dynamic imports
-
-2. **State Updates**
-   - Minimize re-renders
-   - Use proper memoization
-   - Batch state updates
-
-## Security Guidelines
-
-1. **Input Validation**
-   - Validate all user inputs
-   - Sanitize data
-   - Type check responses
-
-2. **Authentication**
-   - Secure token storage
-   - Protected routes
-   - Role-based access
-
-## Maintenance
-
-1. **Updates**
-   - Regular dependency updates
-   - Security patches
-   - Performance monitoring
-
-2. **Documentation**
-   - Keep README updated
-   - Document breaking changes
-   - Maintain change log
+1. Define models in core/
+2. Add API endpoints in data/
+3. Create UI components
+4. Write tests

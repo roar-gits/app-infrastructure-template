@@ -1,6 +1,6 @@
 # App Infrastructure Template
 
-A production-ready React template with enterprise-grade architecture, featuring:
+A production-ready application infrastructure template with enterprise-grade architecture, featuring:
 - Role-based layered architecture
 - TypeScript best practices
 - Comprehensive testing setup
@@ -9,10 +9,13 @@ A production-ready React template with enterprise-grade architecture, featuring:
 
 ## Features
 
-- Initiative tracking and management
-- Role-based access control
-- Error handling and monitoring
-- Responsive layout design
+- Role-based layered architecture
+- Type-safe development with TypeScript
+- Comprehensive testing setup
+- Error boundary implementation
+- Responsive layout system
+- Path aliasing
+- Code splitting & lazy loading
 
 ## Tech Stack
 
@@ -23,18 +26,55 @@ A production-ready React template with enterprise-grade architecture, featuring:
 - React Query for data fetching
 - Jest and Testing Library for testing
 
-## Getting Started
+## Quick Start
 
+1. Create your project:
+```bash
+# Clone the template
+git clone --depth 1 https://github.com/YOUR_USERNAME/app-infrastructure-template.git your-project-name
+
+# Navigate to project and reinitialize git
+cd your-project-name
+rm -rf .git
+git init
+```
+
+2. Install dependencies:
 ```bash
 npm install
+```
+
+3. Start development:
+```bash
 npm run dev
 ```
 
-See [DEVELOPMENT.md](./DEVELOPMENT.md) for detailed setup instructions.
+## Documentation
 
-## Architecture
+- [Development Guide](./DEVELOPMENT.md) - Setup and development workflow
+- [Architecture](./docs/ARCHITECTURE.md) - Project structure and design decisions
 
-See [ARCHITECTURE.md](./docs/ARCHITECTURE.md) for detailed documentation.
+## Customizing the Template
+
+1. Update package.json:
+   - Change name, description, version
+   - Add/remove dependencies as needed
+
+2. Configure environment:
+   - Copy .env.example to .env
+   - Update variables for your project
+
+3. Clean up example code:
+   - Remove example components in src/ui
+   - Update models in src/core/models.ts
+   - Modify API setup in src/data/api.ts
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run test` - Run tests
+- `npm run lint` - Lint code
 
 # React + TypeScript + Vite
 
