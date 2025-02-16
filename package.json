@@ -1,6 +1,6 @@
 {
-  "name": "app-infrastructure-template",
-  "description": "A production-ready application infrastructure template with enterprise-grade architecture",
+  "name": "app-infrastructure-base",
+  "description": "Personal React application infrastructure base",
   "private": true,
   "version": "0.0.0",
   "type": "module",
